@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+		<title>动态地图</title>
+
+		<link href="css/admin.css" rel="stylesheet" type="text/css">
+		<link href="css/amazeui.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link href="css/personal.css" rel="stylesheet" type="text/css">
+		<link href="css/infstyle.css" rel="stylesheet" type="text/css">
+		<script src="css/jquery.min.js" type="text/javascript"></script>
+		<script src="css/amazeui.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=A1LU7iHS0avqQwPLAxbhKn0UYSQCuRVH"></script>
+	   <script type="text/javascript" src="js/jquery.baiduMap.min.js" ></script>
+		
+		<style type="text/css">
+			.box { width: 100%; height: 600px; margin: 40px 0; }
+			#container1,  #container2 { width: 100%; height: 100%; }
+	#container3 { width: 80%; height: 100%; }
+	.list { width: 20%; height: 100%; background: #eee; }
+	.list li { height: 34px; line-height: 34px; padding-left: 20px; }
+	.list li.active a { color: red; }
+	.title { font-size: 10px; /*font-weight: bold; */color: #cc5522; }
+	.content { font-size: 10px; color: #333; margin-top: 0; }
+	.fl { float: left; }
+		</style>
+			
+	</head>
+
+	<body>
+		<!--头 -->
+		<header>
+			<article>
+				<div class="mt-logo">
+					<!--顶部导航条 -->
+					<div class="am-container header">
+						
+						<div class="nav white">
+							<div class="logoBig">
+								<li><img src="img/logo.png.png" /></li>
+							</div>
+							<h1 align="center"style="font-family: '宋体';font-size: 25px;padding-top: 20px;">优速快递值得信赖！</h1>
+						</div>
+						
+						</div>
+
+						<!--悬浮搜索框-->
+
+
+						<div class="clear"></div>
+					</div>
+				</div>
+			</article>
+		</header>
+            <div class="nav-table">
+					   <div class="long-title"><span class="all-goods">服务网点</span></div>
+					   <div class="nav-cont">
+							<ul>
+								<li class="index"><a href="/exp/static/front/frontmain.jsp">首页</a></li>
+                                <li class="qc"><a href="#">服务咨询</a></li>
+                                <li class="qc"><a href="#">合作平台</a></li>
+                                <li class="qc"><a href="#">关于我们</a></li>
+                                <li class="qc last"><a href="#">其他</a></li>
+							</ul>
+						    <!--<div class="nav-extra">
+						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
+						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
+						    </div>-->
+						</div>
+			</div>
+			<b class="line"></b>
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap">
+
+					<div class="user-info"style="background-color: #FFFFCC;">
+						<!--标题 
+						<div class="am-cf am-padding" align="center">
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+						</div>
+						<hr/>
+
+						<!--头像 -->
+						 <div class="user-infoPic" >
+						
+							<div class="box">
+          <div id="container3" class="container fl"></div>
+          <ul class="list fl">
+    <li> <a href="javascript:void(0)">西青苑</a> </li>
+    <li> <a href="javascript:void(0)">东青苑</a> </li>
+    <li> <a href="javascript:void(0)">万达广场</a> </li>
+    <li> <a href="javascript:void(0)">大润发商场</a> </li>
+    <li> <a href="javascript:void(0)">美林美妆</a> </li>
+     <li> <a href="javascript:void(0)">师院南门</a> </li>
+  </ul>
+        </div>
+<div class="box">
+          <div id="container1"></div>
+        </div>
+<div class="box">
+          <div id="container2"></div>
+        </div>
+<script type="text/javascript">
+			var points = [{
+				id: 1,
+				lng: 116.25091232,
+				lat: 39.732602,
+				title: "西青苑",
+				content: ["电话：010-62881144", "电话：010-62881144"]
+			}, {
+				id: 2,
+				lng: 116.095231,
+				lat: 39.731615,
+				title: "东青苑",
+				content: ["电话：010-62881144", "电话：010-69768087"]
+			}, {
+				id: 3,
+				lng: 116.332644,
+				lat: 39.738522,
+				title: "万达广场",
+				content: ["电话：010-62881144", "电话：010-65131892"]
+			}, {
+				id: 4,
+				lng: 116.336586,
+				lat: 39.737507,
+				title: "大润发商场",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 5,
+				lng: 116.336686,
+				lat: 39.737707,
+				title: "大润发商场",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 6,
+				lng: 116.336786,
+				lat: 39.736207,
+				title: "西青苑",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 7,
+				lng: 116.336886,
+				lat: 39.735207,
+				title: "美丽美妆",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 8,
+				lng: 116.336986,
+				lat: 39.734207,
+				title: "大润发商场",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 9,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "美丽美妆",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 10,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "大润发商场",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 11,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "美丽美妆",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 12,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "大润发商场",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 13,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "美丽美妆",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 14,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "大润发商场",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 15,
+				lng: 116.336086,
+				lat: 39.737237,
+				title: "东青苑",
+				content: ["电话：010-62881144", "电话：010-67013036"]
+			}, {
+				id: 16,
+				lng: 116.337526,
+				lat: 39.734345,
+				title: "师院南门",
+				content: ["电话：010-62881144", "电话：010-64040610"]
+			}];
+
+			new BaiduMap({
+				id: "container1",
+				level: 16,
+				titleClass: "title",
+				contentClass: "content",
+				centerPoint: { // 地图中心点经纬度
+					lng: 118.336586,
+					lat: 39.467207
+				},
+				index: -1,
+				points: points,
+				showLabel: true
+			});
+
+			new BaiduMap({
+				id: "container2",
+				level: 16,
+				type: ["地图", "卫星"],
+				width: 320,
+				height: 70,
+				titleClass: "title",
+				contentClass: "content",
+				showMarkPanorama: true,
+				mapStyle: "light",
+				icon: {
+					url: "img/marker.png",
+					width: 25,
+					height: 96
+				},
+				centerPoint: { // 地图中心点经纬度
+					lng: 118.106586,
+					lat: 24.467207
+				},
+				index: 0,
+				points: points
+			});
+
+			var map = new BaiduMap({
+				id: "container3",
+				level: 16, //  选填--地图级别--(默认15)
+				zoom: true, // 选填--是否启用鼠标滚轮缩放功能--(默认false)
+				type: ["地图", "卫星", "三维"], // 选填--显示地图类型--(默认不显示)
+				width: 320, // 选填--信息窗口width--(默认自动调整)
+				height: 70, // 选填--信息窗口height--(默认自动调整)
+				titleClass: "title",
+				contentClass: "content",
+				showPanorama: true, // 是否显示全景控件(默认false)
+				showMarkPanorama: true, // 是否显示标注点全景图(默认false)
+				showLabel: false, // 是否显示文本标注(默认false)
+				mapStyle: "normal", // 默认normal,可选dark,light
+				icon: { // 选填--自定义icon图标
+					url: "img/marker2.png",
+					width: 34,
+					height: 94
+				},
+				centerPoint: { // 中心点经纬度
+					lng: 118.106586,
+					lat: 24.467207
+				},
+				index: 3, // 开启对应的信息窗口，默认-1不开启
+				animate: true, // 是否开启坠落动画，默认false
+				points: points, // 标注点--id(唯一标识)
+				callback: function(id) {
+					$(".list").find("li").eq(id - 1).addClass("active").siblings().removeClass("active");
+				}
+			});
+
+			var data = map.getPosition();
+			var $li = $(".list").find("li");
+
+			$li.each(function(i) {
+				$(this).data("id", i + 1);
+			}).on("click", function() {
+				map.openInfoWindow($(this).data("id"));
+				$(this).addClass("active").siblings().removeClass("active");
+			}).eq(data.id - 1).addClass("active");
+		</script>
+						
+					</div>
+    				
+				</div>
+						</div>
+
+				<!--底部-->
+				<div class="nyh_footer">
+	<div class="nyh_footer_nav">
+    	<a href="#" target="_blank">关于我们</a><a href="#" target="_blank">优速官网</a><a href="#" target="_blank">快速咨询</a><a href="#" target="_blank">优惠政策</a><a href="#" target="_blank">公司公告</a><a href="#" target="_blank">服务公告</a><a href="#" target="_blank">CPS广告联盟</a>
+
+    </div>
+    <div class="nyh_copyright">北京大兴区亦庄经济开发区，大族企业湾</div>
+</div>
+			</div>
+
+			<aside class="menu">
+				<ul>
+					<li class="person">
+						<a href="#">服务支持</a>
+					</li>
+					<li class="person">
+						<a href="#">我要寄件</a>
+						<ul>
+							
+							
+						</ul>
+					</li>
+					<li class="person">
+						<a href="#">运单追踪</a>
+						<ul>
+							
+						</ul>
+					</li>
+					<li class="person">
+						<a href="#">运费时效查询</a>
+						<ul>
+						</ul>
+					</li>
+
+					<li class="active">
+						<a href="#">服务网点查询</a>
+						<ul>
+						
+						</ul>
+					</li>
+
+				</ul>
+
+			</aside>
+			<!-- <aside class="menu">
+				<ul>
+					<li class="person">
+						<a href="#">个人中心</a>
+					</li>
+				</ul>
+				</aside> -->
+		</div>
+
+	</body>
+	 
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+<!-- 		<link rel="stylesheet" href="https://www.jeasyui.com/easyui/themes/default/easyui.css" />
+ -->		<link rel="stylesheet" href="/exp/plugin/back/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" href="/exp/plugin/back/easyui/themes/icon.css" />
+		<link rel="stylesheet" href="/exp/plugin/back/easyui/demo/demo.css" />
+		<script type="text/javascript" src="/exp/plugin/back/easyui/jquery.min.js" ></script>
+		<script type="text/javascript" src="/exp/plugin/back/easyui/jquery.easyui.min.js" ></script>
+</head>
+<body>
+    
+    <table id="dg" title="" class="easyui-datagrid" style="width:100%;height:730px"
+            url="/exp/back/user/all.jhtml"
+            toolbar="#toolbar" pagination="true"
+            rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+                <th field="user_name" width="100" align="center">用户姓名</th>
+                <th field="user_account" width="150" align="center">用户账号</th>
+                <th field="user_pass" width="150" align="center">用户密码</th>
+                <th field="user_tel" width="150" align="center">用户电话号码</th>
+                <th field="user_email" width="150" align="center">用户邮箱</th>
+                <th field="user_sex" width="50" align="center">用户性别</th>
+                <th field="user_idcard" width="150" align="center">用户身份证</th>
+            </tr>
+        </thead>
+    </table>
+     <div id="toolbar">
+    	<table cellpadding="0" cellspacing="0" style="width:100%">
+    		<tr>
+    			<td style="text-align: right;">
+			        <label>搜索：</label><input class="easyui-searchbox" id="value" style="width:200px"></input>
+	            </td>			   
+	        </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+           $(function () {
+	 			$('#value').searchbox({
+	 			    searcher:function(value){
+	 			    
+	 				      $.ajax({
+	 				   	   url:'/exp/back/user/search.jtml?value='+value,
+	 				   	   type:"post",
+	 				   	   datatype:"json",
+	 				   	  success:function(json){
+	 				   		 var result=$.parseJSON(json);
+	 				   		
+	 				   		 alert(json)
+						 	
+	 				   	  }
+	 				      });
+	 			    },
+	 			});
+ 			});
+	</script>
+</body>
+</html>

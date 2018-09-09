@@ -1,0 +1,42 @@
+package com.exp.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.exp.modle.Message;
+import com.exp.service.ClientService;
+import com.exp.service.OrderService;
+import com.google.gson.Gson;
+
+@WebServlet("/back/order/romve.jhtml")
+public class BackOrderRomveServlet extends HttpServlet {
+	@Override
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		String result;
+		Message msg;
+		String id = request.getParameter("id");
+		System.out.println(id);
+		Gson gson = new Gson();
+		try {
+
+			OrderService delet = new OrderService();
+			delet.Remove(id);
+			msg = new Message("200", "成功", "");
+		} catch (Exception e) {
+			msg = new Message("250", "失败", "");
+		}
+		result = gson.toJson(msg);
+		response.setContentType("text/json");
+		
+		response.getWriter().print(result);
+		response.getWriter().close();
+	}
+
+}

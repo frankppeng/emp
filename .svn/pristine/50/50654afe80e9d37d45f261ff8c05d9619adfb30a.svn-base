@@ -1,0 +1,44 @@
+package com.exp.action;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.exp.modle.Cour;
+import com.exp.service.CourService;
+import com.google.gson.Gson;
+
+@WebServlet("/frontcourquery")
+public class FrontCourQueryServlet extends HttpServlet{
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		CourService cs = new CourService();
+		String orderid = request.getParameter("orderid");
+		String sendaddid = request.getParameter("sendaddid");
+		System.out.println(orderid);
+		System.out.println(sendaddid);
+/*		
+		try {
+			Cour cour = cs.Query(sendaddid);
+			if (cour == null) {
+				request.setAttribute("courerror", "未查到快递员");
+				request.getRequestDispatcher("").forward(request, response);//未查找到快递员
+			} else {
+				request.setAttribute("cour", cour);
+				request.setAttribute("orderid", orderid);
+				request.getRequestDispatcher("/jsp/frontordersucess.jsp").forward(request, response);//传递快递员到制定地址
+			}
+		} catch (Exception e) {
+			request.setAttribute("courerror", "快递员分配异常");
+			request.getRequestDispatcher("").forward(request, response);//连接异常
+		}
+*/		
+		
+	}
+}

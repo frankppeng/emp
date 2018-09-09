@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<meta name="keywords" content="echart,图表" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+
+<style type="text/css">
+	#main{margin: auto; }
+.demo{width:100%;margin:50px auto 10px auto;padding:10px;}
+
+.demo{width:100%;margin:50px auto 10px auto;padding:10px;}
+
+
+</style>
+</head>
+
+<body>
+<h1 align="center">2017年物流行业市场份额</h1>
+<div id="main">
+   
+   
+   <div class="demo">
+		<div id="myChart" style="width:100%;height:500px;"></div>
+		
+	</div>
+</div>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript">
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('myChart'));
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'horizontal',
+        left: 'center',
+		bottom: 0,
+        data:['直达','其它外链','搜索引擎','优速','宅急送','天天快递','韵达','顺丰','圆通','总统','佳吉快递','其他']
+    },
+    series: [
+        {
+            name:'访问来源', //内环
+            type:'pie',
+            selectedMode: 'single', //单一选中模式
+            radius: [0, '30%'], //饼图的半径 [内半径，外半径]
+
+            label: {
+                normal: {
+                    position: 'inner' //内置文本标签
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false	 //不需要设置引导线
+                }
+            },
+            data:[
+                {value:335, name:'优速', selected:true},
+                {value:679, name:'其他'},
+                {value:1548, name:'知名'}
+            ]
+        },
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['40%', '55%'],
+
+            data:[
+                {value:335, name:'优速'},
+                {value:310, name:'宅急送'},
+                {value:234, name:'天天快递 '},
+                {value:135, name:'韵达'},
+                {value:1048, name:'顺丰'},
+                {value:251, name:'圆通'},
+                {value:147, name:'百世汇通'},
+				{value:42, name:'佳吉快递'},
+                {value:60, name:'其他'}
+            ]
+        }
+    ]
+};
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+</script>
+
+</body>
+</html>

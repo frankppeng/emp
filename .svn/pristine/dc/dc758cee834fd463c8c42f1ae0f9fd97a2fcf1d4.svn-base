@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>欢迎进入优速后台页面</title>
+		<link rel="stylesheet" href="/exp/static/back/easyui/themes/sunny/easyui.css" />
+		<link rel="stylesheet" href="/exp/static/back/easyui/themes/icon.css" />
+		<link rel="stylesheet" href="/exp/static/back/easyui/demo/demo.css" />
+		<script type="text/javascript" src="/exp/static/back/easyui/jquery.min.js" ></script>
+		<script type="text/javascript" src="/exp/static/back/easyui/jquery.easyui.min.js" ></script>
+		
+		<script type="text/javascript">
+		   	
+			$(document).ready(function() {
+				
+				$('#mytree').tree({
+					onSelect: function(node) {
+						//判断是否是叶子节点
+						if($(this).tree('isLeaf', node.target)) {
+							var _title = node.text;
+							if($('#mytabs').tabs('exists', _title)) {
+								$('#mytabs').tabs('select', _title);
+							} else {
+								//创建Iframe 包含连接页面
+								var _content = "<iframe src='"+node.attributes.href+"' scrolling='auto' frameborder='0' style='width:100%;height:100%;'></iframe>";
+								
+								$('#mytabs').tabs('add', {
+									title: _title,
+									content: _content,
+									closable: true,
+									tools: [{
+										iconCls: 'icon-mini-refresh',
+										handler: function() {
+					                        $().datagrid('reload');    // reload the user data
+										}
+									}]
+								});
+
+							}
+
+						}
+					}
+
+				});
+				
+				//添加
+				
+
+			});
+		</script>
+	</head>
+	<body class="easyui-layout" style="overflow-y: hidden"  scroll="no">
+			
+	    
+	    <div class="easyui-layout" style="width:100%;height:880px;">
+		<div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
+        background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
+        line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
+        <span style="float:right; padding-right:20px;" class="head">欢迎  <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
+        <span style="padding-left:10px; font-size: 16px; "><img src="/exp/static/back/img/CategorizeMenu.png" width="20" height="20" align="absmiddle" />优速快递</span>
+    </div>
+		
+		<div data-options="region:'west',split:true" title="菜单列表" style="width:15%;">
+				<div style="margin:20px 0;"></div>
+					<ul id="mytree" class="easyui-tree" data-options="url:'/exp/static/back/js/tree.json',method:'get',animate:true"></ul>
+					
+		</div>
+		
+		<div data-options="region:'center',title:'主页',iconCls:'icon-ok'">
+				<div style="margin:0px 0 0px 0;"></div>
+	<div id="mytabs" class="easyui-tabs" style="width:100%;height:100%">
+		<div title="关于我们" style="padding:10px">
+			 <h1>欢迎来到优速快递后台</h1>
+		</div>
+	</div>
+		</div>
+		</div>
+	</body>
+</html>

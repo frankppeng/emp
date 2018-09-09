@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>优速 · yousu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+<meta name="keywords" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link href="/exp/plugin/front/css/bootstrap.css" rel="stylesheet">
+    <link href="/exp/plugin/front/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/exp/plugin/front/css/docs.css" rel="stylesheet">
+<style>
+body{font-family:"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;}
+</style>
+    <link href="/exp/plugin/front/css/prettify.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://v2.bootcss.com/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://v2.bootcss.com/assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://v2.bootcss.com/assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="http://v2.bootcss.com/assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="http://v2.bootcss.com/assets/ico/favicon.png">
+  <style id="holderjs-style" type="text/css"></style></head>
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <!-- Navbar
+    ================================================== 
+    -->
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>优速</h1>
+    <p class="lead">简单        便利         高效</p>
+  </div>
+</header>
+  <div class="container">
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav affix-top">
+          <li class="active"><a href="#download-bootstrap"><i class="icon-chevron-right"></i> 下载</a></li>
+          <li class=""><a href="#file-structure"><i class="icon-chevron-right"></i> 文件结构</a></li>
+          <li class=""><a href="#contents"><i class="icon-chevron-right"></i> 包含了哪些东西</a></li>
+          <li class=""><a href="#html-template"><i class="icon-chevron-right"></i> 接口模版</a></li>
+          <li><a href="#examples"><i class="icon-chevron-right"></i> 案例</a></li>
+          <li><a href="#what-next"><i class="icon-chevron-right"></i> 下一步？</a></li>
+        </ul>
+      </div>
+      <div class="span9">
+        <!-- 
+        ================================================== -->
+        <section id="download-bootstrap">
+          <div class="page-header">
+            <h1>1. 下载</h1>
+          </div>
+          <p class="lead">下载之前先检查一下是否准备好了一个代码编辑器(我们推荐使用 <a href="">eclipse</a>) ，你是否已经掌握了足够的HTML和java知识以开展工作。这里我们不详述源码文件，但是它们可以随时被下载。在这里我们只着重介绍使用已经编译好的经典接口文件进行入门讲解。</p>
+
+          <div class="row-fluid">
+            <div class="span6">
+              <h2>下载接口文件</h2>
+              <p><strong>快速开始:</strong>立即下载编译好的版本吧，里面已经包含了需要导入的包和代码，而且所有文件已经经过了压缩处理。不过，文档和源码文件不包含哦。</p>
+              <p><a class="btn btn-large btn-primary" href="#">下载接口文件</a></p>
+            </div>
+            <div class="span6">
+              <h2>下载接口源码</h2>
+              <p>从GitHub直接下载到的最新版的源码包括接口的源文件，以及一份文档。</p>
+              <p><a class="btn btn-large" href="#">下载接口源码</a></p>
+            </div>
+          </div>
+        </section>
+        <!-- 
+        ================================================== -->
+        <section id="file-structure">
+          <div class="page-header">
+            <h1>2. 文件结构</h1>
+          </div>
+          <p class="lead">在下载的压缩包中你可以看到如下的文件结构和内容。所有文件按逻辑进行分类存储，并且提供了编译和压缩两个版本的文件。</p>
+          <p>将下载的文件解压缩之后就可以看到如下的文件结构：</p>
+<pre class="prettyprint"><span class="pln">  bootstrap</span><span class="pun">/</span><span class="pln">
+  </span><span class="pun">├──</span><span class="pln"> css</span><span class="pun">/</span><span class="pln">
+  </span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> bootstrap</span><span class="pun">.</span><span class="pln">css
+  </span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> bootstrap</span><span class="pun">.</span><span class="pln">min</span><span class="pun">.</span><span class="pln">css
+  </span><span class="pun">├──</span><span class="pln"> js</span><span class="pun">/</span><span class="pln">
+  </span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> bootstrap</span><span class="pun">.</span><span class="pln">js
+  </span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> bootstrap</span><span class="pun">.</span><span class="pln">min</span><span class="pun">.</span><span class="pln">js
+  </span><span class="pun">└──</span><span class="pln"> img</span><span class="pun">/</span><span class="pln">
+      </span><span class="pun">├──</span><span class="pln"> glyphicons</span><span class="pun">-</span><span class="pln">halflings</span><span class="pun">.</span><span class="pln">png
+      </span><span class="pun">└──</span><span class="pln"> glyphicons</span><span class="pun">-</span><span class="pln">halflings</span><span class="pun">-</span><span class="pln">white</span><span class="pun">.</span><span class="pln">png</span></pre>
+          <p>这就是接口接受文件显示样式的基本结构：编译后的文件可以快速应用于任何web项目。我们提供了编译版文件 (<code>接口文件</code>)，也同时提供了编译并压缩之后的接口文件 (<code>接口.rar</code>)。图片文件是使用 <a href="">ImageOptim</a> 工具进行压缩的，这个工具是Mac平台上用于压缩PNG文件的一个app。</p>
+          <p>请注意，所有的接口源码书写格式都必须用英文。</p>
+       </section>
+        <!-- Contents
+        ================================================== -->
+        <section id="contents">
+          <div class="page-header">
+            <h1>3. 包含了哪些东西</h1>
+          </div>
+          <p class="lead">接口中的导入的包、运行环境和需求的服务器适用于各类设备, 不过它们可以被概括成几个类别。</p>
+          <h2>文档章节</h2>
+          <!--<h4><a href="">脚手架</a></h4>-->
+          <p>全局性的样式文件，用于重置背景、链接样式、栅格系统等，并包含两个简单的布局结构。</p>
+          <!--<h4><a href="">基本CSS样式</a></h4>-->
+          <p>常见的HTML元素 -- 如排版、代码、表格、表单、和按钮的样式。</p>
+          <!--<h4><a href="">组件</a></h4>-->
+          <p>常见界面组件 -- 如标签、pill、导航、警告、页面标题的基本样式。</p>
+          <!--<h4><a href="">JavaScript插件</a></h4>-->
+          <p>和组件类似，这些Javascript插件用来实现提示(tooltip)、弹出框(popover)、模态对话框(modal)等具有交互性的组件。</p>
+
+          <h2>组件列表</h2>
+          <!--<p><strong>组件库</strong> 和 <strong>JavaScript插件集</strong> 一同提供了以下组件元素。</p>-->
+          <ul>
+            <li>按钮组</li>
+            <li>按钮下拉菜单</li>
+            <li>用于导航的标签、pill、列表</li>
+            <li>导航条</li>
+            <li>Labels</li>
+            <li>Badges</li>
+            <li>Page headers and hero unit</li>
+            <li>缩略图</li>
+            <li>警告对话框</li>
+            <li>进度条</li>
+            <li>模态对话框(Modals)</li>
+            <li>下拉菜单(Dropdowns)</li>
+            <li>Tooltips</li>
+            <li>Popovers</li>
+            <li>Accordion</li>
+            <li>Carousel</li>
+            <li>Typeahead</li>
+          </ul>
+          <p>在后面的文档中, 我们会挨个详细的介绍这些组件的细节。在此之前, 先来看看如何使用并定制它们。</p>
+        </section>
+        <!-- 
+        ================================================== -->
+        <section id="html-template">
+          <div class="page-header">
+            <h1>4. 基本接口文件模版</h1>
+          </div>
+          <p class="lead">为了把注意力完全放到使用Bootstrap上，我们先做一点儿课前准备。为了做到这一点，我们将利用一个基本的接口文件样式和HTML模板, 其中包括我们在文件结构一章中提到的所有内容。</p>
+          <p>现在, 这里展示一个<strong>典型的接口文件</strong>：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="dec">package com.dxton.www;<li class="L1"><span class="tag">public class Send {</li><li class="L2"><span class="tag">public static String SMS(String postData, String postUrl) {</li><li class="L1"><span class="tag"> try {</li><li class="L"><span class="tag">//发送POST请求</li><li class="L1"><span class="tag">URL url = new URL(postUrl);</li><li class="L1"><span class="tag">HttpURLConnection conn = (HttpURLConnection) url.openConnection();</li><li class="L1"><span class="tag"> conn.setRequestMethod("POST");</li><li class="L1"><span class="tag">conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");</li><li class="L1"><span class="tag">conn.setRequestProperty("Connection", "Keep-Alive");</li><li class="L1"><span class="tag">conn.setUseCaches(false);</li><li class="L1"><span class="tag">conn.setDoOutput(true);</li><li class="L1"><span class="tag">conn.setRequestProperty("Content-Length", "" + postData.length());</li><li class="L1"><span class="tag">OutputStreamWriter out = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");</li><li class="L1"><span class="tag">out.write(postData);</li><li class="L1"><span class="tag">out.flush();</li><li class="L1"><span class="tag">out.close();</li><li class="L1"><span class="tag">//获取响应状态</li><li class="L1"><span class="tag">if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {</li><li class="L1"><span class="tag"> System.out.println("connect failed!");</li><li class="L1"><span class="tag"> return "";</li><li class="L1"><span class="tag">}</li><li class="L1"><span class="tag"> //获取响应内容体</li><li class="L1"><span class="tag"> String line, result = "";</li><li class="L1"><span class="tag">BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));</li><li class="L1"><span class="tag">while ((line = in.readLine()) != null) {</li><li class="L1"><span class="tag"> result += line + "\n";</li><li class="L1"><span class="tag">}</li><li class="L1"><span class="tag">in.close();</li><li class="L1"><span class="tag"> return result;</li><li class="L1"><span class="tag">} catch (IOException e) {</li><li class="L1"><span class="tag"> e.printStackTrace(System.out);</li><li class="L1"><span class="tag">}</li><li class="L1"><span class="tag">return "";</li><li class="L1"><span class="tag">}</li><li class="L1"><span class="tag">}</li></ol></pre>
+          <p>为了使其成为<strong>一个接口模板</strong>, 需要包含相应的包文件：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="dec">&lt;!DOCTYPE html&gt;</span></li><li class="L1"><span class="tag">&lt;html&gt;</li><li class="L1"><span class="tag">&lt;head&gt;</li><li class="L1"><span class="tag">&lt;meta charset="UTF-8"&gt;</li><li class="L1"><span class="tag">&lt;title&gt;&lt;/title&gt;</li><li class="L1"><span class="tag">&lt;link rel="stylesheet" href="https://www.jeasyui.com/easyui/themes/default/easyui.css" /&gt;</li><li class="L1"><span class="tag">&lt;link rel="stylesheet" href="/exp/plugin/back/easyui/themes/icon.css" /&gt;</li><li class="L1"><span class="tag">&lt;link rel="stylesheet" href="/exp/plugin/back/easyui/demo/demo.css" /&gt;</li><li class="L1"><span class="tag">&lt;script type="text/javascript" src="/exp/plugin/back/easyui/jquery.min.js"&gt;</script></li><li class="L1"><span class="tag">&lt;script type="text/javascript" src="/exp/plugin/back/easyui/jquery.easyui.min.js"&gt;</script></li><li class="L1"><span class="tag">&lt;/head&gt;</li><li class="L1"><span class="tag">&lt;body&gt;</li><li class="L1"><span class="tag">&lt;table id="dg" title="" class="easyui-datagrid"</li><li class="L1"><span class="tag">style="width: 100%; height: 730px" url="/exp/store2"</li><li class="L1"><span class="tag">toolbar="#toolbar" pagination="true" rownumbers="true"</li><li class="L1"><span class="tag">fitColumns="true" singleSelect="true"&gt;</li><li class="L1"><span class="tag">&lt;thead&gt;</li><li class="L1"><span class="tag">&lt;tr&gt;</li><li class="L1"><span class="tag">&lt;th field="orderId" width="65" align="center"&gt;订单编号&lt;/th&gt;</li><li class="L1"><span class="tag">&lt;th field="userName" width="70" align="center"&gt;买家昵称&lt;/th&gt;</li><li class="L1"><span class="tag">&lt;th field="sellerName" width="75" align="center"&gt;店铺名称&lt;/th&gt;</li><li class="L1"><span class="tag">&lt;th field="ordDate" width="65" align="center"&lt;订单时间&lt;/th&gt;</li><li class="L1"><span class="tag">&lt;th field="tag" width="85" align="center"&gt;商品名字&lt;/th&gt;</li><li class="L1"><span class="tag">&lt;th field="proName" width="70" align="center"&gt;送货地址&lt;/th&gt;</li><li class="L1"><span class="tag">&lt;/tr&gt;</li><li class="L1"><span class="tag">&lt;/thead&gt;</li><li class="L1"><span class="tag">&lt;/table&gt;</li><li class="L1"><span class="tag">&lt;/body&gt;</li><li class="L1"><span class="tag">&lt;/html&gt;</li></ol></pre>
+          <p><strong>设置成功!</strong> 加入这两个文件, 你就可以开始用Bootstrap开发任何网站和应用程序了。</p>
+       </section>
+        <!-- Examples
+        ================================================== -->
+        <section id="examples">
+          <div class="page-header">
+            <h1>5. 案例</h1>
+          </div>
+          <p class="lead">希望下面的几个案例能引导大家在基础模版的基础上做发散性思维。我们鼓励大家参考下面的案例举一反三，而不要仅仅是机械式的照抄。</p>
+          <ul class="thumbnails bootstrap-examples">
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-starter.png" alt="">
+              </a>
+              <h4>最简接口</h4>
+              <p>一个包含了接口的所有Java文件的最简文档。</p>
+            </li>
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-marketing.png" alt="">
+              </a>
+              <h4>基本的营销类网站接口</h4>
+              <p>具有一个主消息板块和三个辅助性元素。</p>
+            </li>
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-fluid.png" alt="">
+              </a>
+              <h4>商城接口</h4>
+              <p>使用新的响应式布局, 流式栅格系统建立的一个流式布局。</p>
+            </li>
+
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-marketing-narrow.png" alt="">
+              </a>
+              <h4>精简版的营销类网站接口</h4>
+              <p>适用于小项目或团队的简单、轻量级的营销类模板。</p>
+            </li>
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-justified-nav.png" alt="">
+              </a>
+              <h4>个人企业接口</h4>
+              <p>带有等宽的导航链接的市场营销类页面，导航条在原始样式的基础上进行了修改。</p>
+            </li>
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-signin.png" alt="">
+              </a>
+              <h4>银行接口</h4>
+              <p>基本的登录表单，使用到了自定义的较大的表单组件和灵活的布局。</p>
+            </li>
+
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-sticky-footer.png" alt="">
+              </a>
+              <h4>地税局接口</h4>
+              <p>将固定高度的页脚钉在页面可视区域的最下方。</p>
+            </li>
+            <li class="span3">
+              <a class="thumbnail" href="#" target="_blank">
+                <img src="/exp/plugin/front/img/bootstrap-example-carousel.png" alt="">
+              </a>
+              <h4>私人商铺接口</h4>
+              <p>一个更具交互、突出轮播的基本营销类网站。</p>
+            </li>
+          </ul>
+        </section>
+        <!-- 
+        ================================================== -->
+        <section id="what-next">
+          <div class="page-header">
+            <h1>下一步？</h1>
+          </div>
+          <p class="lead">根据文档顶部的分类查看更多案例、代码片段, 或定制接口，为你即将开展的项目做一次彻底改变。</p>
+          <a class="btn btn-large btn-primary" href="/exp/static/front/frontmain.jsp">返回官网</a>
+          <a class="btn btn-large" href="#" style="margin-left: 5px;">定制接口</a>
+        </section>
+      </div>
+    </div>
+  </div>
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="/exp/plugin/front/js/jquery.js"></script>
+    <script src="/exp/plugin/front/js/bootstrap.js"></script>
+
+    <script src="/exp/plugin/front/js/holder.js"></script>
+    <script src="/exp/plugin/front/js/prettify.js"></script>
+
+    <script src="/exp/plugin/front/js/application.js"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff8075d186077efcfbc077b500516e94a' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="/exp/plugin/front/js/h_002.js" type="text/javascript"></script>
+
+<!-- 全局统计代码 -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F079fac161efc4b2a6f31e80064f14e82' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="js/h.js" type="text/javascript"></script>
+
+
+
+  
+
+</body></html>

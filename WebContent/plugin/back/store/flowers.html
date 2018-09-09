@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+	<link rel="stylesheet" href="https://www.jeasyui.com/easyui/themes/default/easyui.css" />
+	<link rel="stylesheet" href="/exp/plugin/back/easyui/themes/icon.css" />
+	<link rel="stylesheet" href="/exp/plugin/back/easyui/demo/demo.css" />
+	<script type="text/javascript" src="/exp/plugin/back/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="/exp/plugin/back/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<table id="dg" title="" class="easyui-datagrid"
+		style="width: 100%; height: 730px" url="/exp/store"
+		toolbar="#toolbar" pagination="true" rownumbers="true"
+		fitColumns="true" singleSelect="true">
+		<thead>
+			<tr>
+				<th field="ID" width="65" align="center">编号</th>
+				<th field="ordersID" width="70" align="center">订单编号</th>
+				<th field="productID" width="75" align="center">产品名称</th>
+				<th field="memberID" width="65" align="center">成员姓名</th>
+				<th field="debitName" width="85" align="center">发货人姓名</th>
+				<th field="debitPhone" width="70" align="center">发货人电话</th>
+				<th field="debitAddress" width="65" align="center">发货人地址</th>
+				<th field="consigneeName" width="85" align="center">收获人姓名</th>
+				<th field="consigneePhone" width="70" align="center">收获人电话</th>
+				<th field="consigneeAddress" width="65" align="center">收货人地址</th>
+				<th field="venrity" width="65" align="center">审核</th>
+				<th field="orderMoney" width="65" align="center">产品金额</th>
+				<th field="leaveWord" width="65" align="center">花语</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>

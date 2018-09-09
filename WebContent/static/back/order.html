@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<!-- 		<link rel="stylesheet" href="https://www.jeasyui.com/easyui/themes/default/easyui.css" />
+ -->		<link rel="stylesheet" href="/exp/plugin/back/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" href="/exp/plugin/back/easyui/themes/icon.css" />
+		<link rel="stylesheet" href="/exp/plugin/back/easyui/demo/demo.css" />
+		<script type="text/javascript" src="/exp/plugin/back/easyui/jquery.min.js" ></script>
+		<script type="text/javascript" src="/exp/plugin/back/easyui/jquery.easyui.min.js" ></script>
+		
+	</head>
+	<body>
+		<table id="dg" title="" class="easyui-datagrid" style="width:100%;height:730px"
+            url="/exp/back/order.jhtml"
+            toolbar="#toolbar" pagination="true"
+            rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+                <th field="order_id" width="25" align="center">订单编号</th>
+                <th field="order_sendname" width="35" align="center">发件人姓名</th>
+                <th field="order_sendtel" width="45" align="center">发件人电话</th>
+                <th field="order_senddate" width="35" align="center">发件日期</th>
+                <th field="order_getname" width="35" align="center">收件人姓名</th>
+                <th field="order_gettel" width="45" align="center">收件人电话</th>
+                <th field="order_getdate" width="55" align="center">收件人日期</th>
+                <th field="order_expprice" width="55" align="center">快递收费</th>
+                <th field="order_sendaddid" width="80" align="center">发件人地址</th>
+                <th field="order_getaddid" width="80" align="center">收件人地址</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+    	<table cellpadding="0" cellspacing="0" style="width:100%">
+    		<tr>
+    			 <td style="text-align: right;">
+			        <a href="javascript:void(0)" class="easyui-searchbox"  style="width:250px"  plain="true" onclick="search()">Search User</a>
+	            </td>
+    			<td style="text-align: right;">
+			        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" style="text-align: ;" onclick="newUser()">添加</a>
+			        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">修改</a>
+			        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">删除</a>
+			    </td>
+			   
+	        </tr>
+        </table>
+    </div>
+    
+    <div id="dlg" class="easyui-dialog" style="width:400px"
+            closed="true" buttons="#dlg-buttons">
+        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+            <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #A94442">详细信息</div>
+            <div style="margin-bottom:10px">
+                <input name="order_sendname" class="easyui-textbox" required="true" label="发件人姓名:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="order_sendtel" class="easyui-textbox" required="true" label="发件人电话:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="order_senddate" class="easyui-textbox" required="true" label="发件日期:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="order_getname" class="easyui-textbox" required="true" label="收件人姓名:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="order_gettel" class="easyui-textbox" required="true" label="收件人电话:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="order_getdate" class="easyui-textbox" required="true" label="收件日期:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="order_expprice" class="easyui-textbox" required="true" label="快递收费:" style="width:100%">
+            </div>
+             <div style="margin-bottom:10px">
+                <input name="order_sendaddid" class="easyui-textbox" required="true" label="发件人地址:" style="width:100%">
+            </div>
+             <div style="margin-bottom:10px">
+                <input name="order_getaddid" class="easyui-textbox" required="true" label="收件人地址:" style="width:100%">
+            </div>
+        </form>
+    </div>
+    <div id="dlg-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+    </div>
+    <script type="text/javascript">
+        var url;
+        function newUser(){
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle','添加');
+            $('#fm').form('clear');
+            url = '/exp/back/order/add.jhtml';
+        }
+     
+        function editUser(){
+        	 var row = $('#dg').datagrid('getSelected');
+            if (row){
+            	   $('#dlg').dialog('open').dialog('center').dialog('setTitle','修改');
+                   $('#fm').form('load',row);
+ 	               url = '/exp/back/order/edit.jhtml?order_id='+row.order_id;
+            }else{
+            	layer.alert("未选择参数");
+            }
+        }
+        
+        function saveUser(){
+            $('#fm').form('submit',{
+                url: url,
+                onSubmit: function(){
+                    return $(this).form('validate');
+                },
+                success: function(result){
+                    var result = eval('('+result+')');
+                    if (result.code == 200){
+                    	 $('#dlg').dialog('close');        // close the dialog
+                         $('#dg').datagrid('reload');
+                    } else {
+                    	if (result.code == 210) {alert("信息填写错误");}
+                    	else {alert("抱歉，系统升级中...");}    // reload the user data
+                    }
+                }
+            });
+        }
+        function destroyUser(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+                $.messager.confirm('','确认删除?',function(r){
+                    if (r){
+                        $.post('/exp/back/order/romve.jhtml',{id:row.order_id},function(result){
+                            if (result.code='200'){
+                                $('#dg').datagrid('reload');    // reload the user data
+                            } else {
+                                $.messager.show({    // show error message
+                                    title: 'Error',
+                                    msg: result.errorMsg
+                                });
+                            }
+                        },'json');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

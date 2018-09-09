@@ -1,0 +1,33 @@
+package com.exp.service;
+
+import java.util.List;
+
+import com.exp.dao.ClientDao;
+import com.exp.modle.Client;
+
+public class ClientService {
+	ClientDao clientDao = new ClientDao();
+	//query client
+	public List Query(){
+		List list = clientDao.QueryAll();
+		return list;
+	}
+	public Client QueryLoginAccountAndPass(String accout,String pass){
+		Client client = clientDao.QueryAccountAndPass(accout, pass);
+		return client;
+	}
+	//add client
+	public int Add(Client client){
+		int result = clientDao.Add(client);
+		return result;
+	}
+	//romove client
+	public void Remove(String account){
+		clientDao.Remove(account);
+	}
+	//edit client
+	public int Edit(Client client){
+		return clientDao.Edit(client);
+	}
+}
+

@@ -1,0 +1,49 @@
+package com.exp.action;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.exp.modle.Client;
+import com.exp.service.ClientService;
+import com.google.gson.Gson;
+
+@WebServlet("/front/client/success.jhtml")
+public class FrontClientSuccessServlet extends HttpServlet{
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			ClientService cs = new ClientService();
+			List list = cs.Query();
+			Client client= null;
+			if (list.size()>0) {
+				HashMap map = (HashMap) list.get(0);
+				//oracle
+				String name = String.valueOf(map.get("client_name"));
+				String account = String.valueOf(map.get("client_account"));
+				String pass = String.valueOf(map.get("client_pass"));
+				String tel = String.valueOf(map.get("client_tel"));
+				String idcard = String.valueOf(map.get("client_idcard"));
+				String sex = String.valueOf(map.get("client_sex"));
+				String addressid = String.valueOf(map.get("client_addressid"));
+				String email = String.valueOf(map.get("client_email"));
+				client = new Client(name, account, pass, tel, idcard, sex, addressid, email);
+			}
+			System.out.println(client.toString());
+			request.setAttribute("client", client);
+			request.getRequestDispatcher("/static/front/registersuccess.jsp").forward(request, response);
+		} catch (Exception e) {
+			System.out.println("连接异常");
+			request.setAttribute("error", "连接异常");
+			request.getRequestDispatcher("").forward(request, response);
+		}
+
+	}
+}
